@@ -54,6 +54,22 @@
             height: fit-content;
         }
 
+        @media (max-width: 850px) {
+            .container {
+                flex-direction: column;
+                height: unset;
+            }
+
+            .column-left, .column-right-scaling, .column-right-scrolling {
+                width: 100%;
+                overflow: unset;
+            }
+
+            .hidden-sm {
+                display: none;
+            }
+        }
+
         .node {
             display: flex;
             flex-direction: row;
@@ -242,7 +258,7 @@
         Next
     </button>
 
-    <label style="margin-left: 30px">
+    <label class="hidden-sm" style="margin-left: 30px">
         <input type="checkbox" id="scale-or-scroll-checkbox" onchange="toggleScalingOrScrolling()">
         Scale tree to fit
     </label>
@@ -252,411 +268,1153 @@
 <div class="container">
     <div class="column column-left">
         <div class="chat-container">
-            <div class="message initial" id="msg-0">What objects did you detect when telling what you can see at June 26 ?</div>
-<div class="message from-bot" id="msg-1">history.expand(datetime.date(2024, 6, 26))</div>
-<div class="message from-bot" id="msg-2">history[0].expand()</div>
-<div class="message from-bot" id="msg-3">history[0][1].expand()</div>
-<div class="message from-bot" id="msg-4">history[0][1][1].expand()</div>
-<div class="message from-bot" id="msg-5">history[0][1][1][2].expand()</div>
-<div class="message from-bot" id="msg-6">vqa("What objects did you detect?", history[0][1][1][1][2][0].image)</div>
-<div class="message from-human" id="msg-7">'Index 2 out of range (length 1). Revise the code carefully to avoid this error.'</div>
-<div class="message from-bot" id="msg-8">vqa("What objects did you detect?", history[0][1][1][1][2][0].image)</div>
-<div class="message from-human" id="msg-9">'Index 2 out of range (length 1). Revise the code carefully to avoid this error.'</div>
-<div class="message from-bot" id="msg-10">vqa("What objects did you detect?", history[0][1][1][2][0].image)</div>
-<div class="message from-human" id="msg-11">'Image passed to vqa(...) is None. Use an image from a different node.'</div>
-<div class="message from-bot" id="msg-12">vqa("What objects did you detect?", history[0][1][1][2][0].image)</div>
-<div class="message from-human" id="msg-13">'Image passed to vqa(...) is None. Use an image from a different node.'</div>
-<div class="message from-bot" id="msg-14">vqa("What objects did you detect?", history[0][1][1][1][2][0].image)</div>
-<div class="message from-human" id="msg-15">'Index 2 out of range (length 1). Revise the code carefully to avoid this error.'</div>
-<div class="message from-bot" id="msg-16">vqa("What objects did you detect?", history[0][1][1][2][0].image)</div>
-<div class="message from-human" id="msg-17">'Image passed to vqa(...) is None. Use an image from a different node.'</div>
-<div class="message answer" id="msg-18">Error</div>
+            <div class="message initial" id="msg-0">What objects did you detect when telling what you can see at June 26
+                ?
+            </div>
+            <div class="message from-bot" id="msg-1">history.expand(datetime.date(2024, 6, 26))</div>
+            <div class="message from-bot" id="msg-2">history[0].expand()</div>
+            <div class="message from-bot" id="msg-3">history[0][1].expand()</div>
+            <div class="message from-bot" id="msg-4">history[0][1][1].expand()</div>
+            <div class="message from-bot" id="msg-5">history[0][1][1][2].expand()</div>
+            <div class="message from-bot" id="msg-6">vqa("What objects did you detect?",
+                history[0][1][1][1][2][0].image)
+            </div>
+            <div class="message from-human" id="msg-7">'Index 2 out of range (length 1). Revise the code carefully to
+                avoid this error.'
+            </div>
+            <div class="message from-bot" id="msg-8">vqa("What objects did you detect?",
+                history[0][1][1][1][2][0].image)
+            </div>
+            <div class="message from-human" id="msg-9">'Index 2 out of range (length 1). Revise the code carefully to
+                avoid this error.'
+            </div>
+            <div class="message from-bot" id="msg-10">vqa("What objects did you detect?",
+                history[0][1][1][2][0].image)
+            </div>
+            <div class="message from-human" id="msg-11">'Image passed to vqa(...) is None. Use an image from a different
+                node.'
+            </div>
+            <div class="message from-bot" id="msg-12">vqa("What objects did you detect?",
+                history[0][1][1][2][0].image)
+            </div>
+            <div class="message from-human" id="msg-13">'Image passed to vqa(...) is None. Use an image from a different
+                node.'
+            </div>
+            <div class="message from-bot" id="msg-14">vqa("What objects did you detect?",
+                history[0][1][1][1][2][0].image)
+            </div>
+            <div class="message from-human" id="msg-15">'Index 2 out of range (length 1). Revise the code carefully to
+                avoid this error.'
+            </div>
+            <div class="message from-bot" id="msg-16">vqa("What objects did you detect?",
+                history[0][1][1][2][0].image)
+            </div>
+            <div class="message from-human" id="msg-17">'Image passed to vqa(...) is None. Use an image from a different
+                node.'
+            </div>
+            <div class="message answer" id="msg-18">Error</div>
 
         </div>
     </div>
 
     <div class="column column-right-scrolling" id="tree-column">
-        
+
         <div class="node " id="node-0">
-            <i class="node-icon"style="margin-left: 17px; height: 2px; width: 2px; margin-right:7px; border-width: 2px; border-radius: 2px; background-color: gray"></i>
+            <i class="node-icon"
+               style="margin-left: 17px; height: 2px; width: 2px; margin-right:7px; border-width: 2px; border-radius: 2px; background-color: gray"></i>
             <i class="node-icon-2"></i>
             <p class="node-idx">0</p>
             <p class="node-dt">2024/06/26 - 2024/08/27</p>
-            <p class="node-summary">Over the past few months, I have engaged in a variety of activities, including object identification and handovers, navigation, introductions, and interacting with people through gestures and speech, while encountering challenges like failed object retrievals and dishwasher loading attempts.</p>
-        </div><div class="child-container l0" id="child-container-0">
+            <p class="node-summary">Over the past few months, I have engaged in a variety of activities, including
+                object identification and handovers, navigation, introductions, and interacting with people through
+                gestures and speech, while encountering challenges like failed object retrievals and dishwasher loading
+                attempts.</p>
+        </div>
+        <div class="child-container l0" id="child-container-0">
             <div class="node-children-indicator" id="child-indicator-after-node-0--1">
                 <i class="node-icon"></i>
                 <i class="fa-solid fa-ellipsis"></i>
             </div>
-            
-        <div class="node " id="node-0-0">
-            <i class="node-icon"></i>
-            <i class="node-icon-2"></i>
-            <p class="node-idx">0</p>
-            <p class="node-dt">2024/06/26 18:38 - 2024/06/27 15:34</p>
-            <p class="node-summary">From June 26 to June 27, I engaged in various activities including object handovers, navigation, object learning, and introductions. I noted the presence of soy milk and used different phrases to state my identity.</p>
-        </div><div class="child-container l1" id="child-container-0-0">
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0--1">
+
+            <div class="node " id="node-0-0">
                 <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
+                <i class="node-icon-2"></i>
+                <p class="node-idx">0</p>
+                <p class="node-dt">2024/06/26 18:38 - 2024/06/27 15:34</p>
+                <p class="node-summary">From June 26 to June 27, I engaged in various activities including object
+                    handovers, navigation, object learning, and introductions. I noted the presence of soy milk and used
+                    different phrases to state my identity.</p>
             </div>
-            
-        <div class="node " id="node-0-0-0">
-            <i class="node-icon"></i>
-            <i class="node-icon-2"></i>
-            <p class="node-idx">0</p>
-            <p class="node-dt">2024/06/26 18:38 - 19:27</p>
-            <p class="node-summary">On June 26th, I attempted to hand over and receive objects, then stated my identity using different phrases.</p>
-        </div><div class="child-container l2" id="child-container-0-0-0">
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-0--1">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            </div>
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-0">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            
-        <div class="node " id="node-0-0-1">
-            <i class="node-icon"></i>
-            <i class="node-icon-2"></i>
-            <p class="node-idx">1</p>
-            <p class="node-dt">2024/06/26 19:29 - 20:20</p>
-            <p class="node-summary">Later that day, I navigated to various locations, scanned for objects, and performed a series of movements including object learning and handing over and receiving objects with mixed success.</p>
-        </div><div class="child-container l2" id="child-container-0-0-1">
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1--1">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            
-        <div class="node " id="node-0-0-1-0">
-            <i class="node-icon"></i>
-            <i class="node-icon-2"></i>
-            <p class="node-idx">0</p>
-            <p class="node-dt">2024/06/26 19:29 - 19:45</p>
-            <p class="node-summary">I navigated to the home location and aborted an attempt to identify objects.</p>
-        </div><div class="child-container l3" id="child-container-0-0-1-0">
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-0--1">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            </div>
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-0">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            
-        <div class="node " id="node-0-0-1-1">
-            <i class="node-icon"></i>
-            <i class="node-icon-2"></i>
-            <p class="node-idx">1</p>
-            <p class="node-dt">2024/06/26 19:48 - 19:51</p>
-            <p class="node-summary">I moved to the sideboard, looked down, and scanned the area for visible objects.</p>
-        </div><div class="child-container l3" id="child-container-0-0-1-1">
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1--1">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            
-        <div class="node " id="node-0-0-1-1-0">
-            <i class="node-icon"></i>
-            <i class="node-icon-2"></i>
-            <p class="node-idx">0</p>
-            <p class="node-dt">2024/06/26 19:48:00 - 19:48:03</p>
-            <p class="node-summary">Goal: NavigateToNamedLocation(location=sideboard)</p>
-        </div><div class="child-container l4" id="child-container-0-0-1-1-0">
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-0--1">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            </div>
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-0">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            
-        <div class="node " id="node-0-0-1-1-1">
-            <i class="node-icon"></i>
-            <i class="node-icon-2"></i>
-            <p class="node-idx">1</p>
-            <p class="node-dt">2024/06/26 19:48:08 - 19:48:08</p>
-            <p class="node-summary">Goal: LookDown</p>
-        </div><div class="child-container l4" id="child-container-0-0-1-1-1">
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-1--1">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            </div>
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-1">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            
-        <div class="node " id="node-0-0-1-1-2">
-            <i class="node-icon"></i>
-            <i class="node-icon-2"></i>
-            <p class="node-idx">2</p>
-            <p class="node-dt">2024/06/26 19:48:57 - 19:51:45</p>
-            <p class="node-summary">Goal: WhatCanYouSee</p>
-        </div><div class="child-container l4" id="child-container-0-0-1-1-2">
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2--1">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            
-        <div class="node " id="node-0-0-1-1-2-0">
-            <i class="node-icon"></i>
-            <i class="node-icon-2"></i>
-            <p class="node-idx">0</p>
-            <p class="node-dt">2024/06/26 19:48:57 - 19:48:57</p>
-            <p class="node-summary">Action: WhatCanYouSee &lt;Running&gt;.</p>
-        </div><div class="child-container l5" id="child-container-0-0-1-1-2-0">
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-0--1">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            </div>
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-0">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            
-        <div class="node " id="node-0-0-1-1-2-1">
-            <i class="node-icon"></i>
-            <i class="node-icon-2"></i>
-            <p class="node-idx">1</p>
-            <p class="node-dt">2024/06/26 19:48:57 - 19:48:57</p>
-            <p class="node-summary">Action: SetCustomGazeTarget(target=(0.0, 1500.0, 600.0), duration=6000) &lt;Succeeded&gt;.</p>
-        </div><div class="child-container l5" id="child-container-0-0-1-1-2-1">
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-1--1">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            </div>
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-1">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            
-        <div class="node " id="node-0-0-1-1-2-2">
-            <i class="node-icon"></i>
-            <i class="node-icon-2"></i>
-            <p class="node-idx">2</p>
-            <p class="node-dt">2024/06/26 19:49:00 - 19:51:42</p>
-            <p class="node-summary">Goal: WhatCanYouSee &lt;Running&gt;</p>
-        </div><div class="child-container l5" id="child-container-0-0-1-1-2-2">
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-2--1">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            </div>
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-2">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            
-        <div class="node " id="node-0-0-1-1-2-3">
-            <i class="node-icon"></i>
-            <i class="node-icon-2"></i>
-            <p class="node-idx">3</p>
-            <p class="node-dt">2024/06/26 19:51:42 - 19:51:42</p>
-            <p class="node-summary">Action: SetCustomGazeTarget(target=(0.0, 1500.0, 600.0), duration=6000) &lt;Succeeded&gt;.</p>
-        </div><div class="child-container l5" id="child-container-0-0-1-1-2-3">
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-3--1">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            </div>
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-3">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            
-        <div class="node " id="node-0-0-1-1-2-4">
-            <i class="node-icon"></i>
-            <i class="node-icon-2"></i>
-            <p class="node-idx">4</p>
-            <p class="node-dt">2024/06/26 19:51:45 - 19:51:45</p>
-            <p class="node-summary">Action: Say(text=I do not know this object. Can you tell me the name?) &lt;Succeeded&gt;.</p>
-        </div><div class="child-container l5" id="child-container-0-0-1-1-2-4">
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-4--1">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            </div>
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-4">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            
-        <div class="node " id="node-0-0-1-1-2-5">
-            <i class="node-icon"></i>
-            <i class="node-icon-2"></i>
-            <p class="node-idx">5</p>
-            <p class="node-dt">2024/06/26 19:51:45 - 19:51:45</p>
-            <p class="node-summary">Action: WhatCanYouSee &lt;Succeeded&gt;.</p>
-        </div><div class="child-container l5" id="child-container-0-0-1-1-2-5">
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-5--1">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            </div>
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-5">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            </div>
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            </div>
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            
-        <div class="node " id="node-0-0-1-2">
-            <i class="node-icon"></i>
-            <i class="node-icon-2"></i>
-            <p class="node-idx">2</p>
-            <p class="node-dt">2024/06/26 19:52:51 - 19:52:56</p>
-            <p class="node-summary">Goal: ObjectLearning(target=(0.0, 1500.0, 600.0), duration=6000)</p>
-        </div><div class="child-container l3" id="child-container-0-0-1-2">
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-2--1">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            </div>
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-2">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            
-        <div class="node " id="node-0-0-1-3">
-            <i class="node-icon"></i>
-            <i class="node-icon-2"></i>
-            <p class="node-idx">3</p>
-            <p class="node-dt">2024/06/26 19:56 - 20:04</p>
-            <p class="node-summary">I had mixed success in receiving and handing over objects to a human.</p>
-        </div><div class="child-container l3" id="child-container-0-0-1-3">
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-3--1">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            </div>
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-3">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            
-        <div class="node " id="node-0-0-1-4">
-            <i class="node-icon"></i>
-            <i class="node-icon-2"></i>
-            <p class="node-idx">4</p>
-            <p class="node-dt">2024/06/26 20:04 - 20:08</p>
-            <p class="node-summary">I shaped my hand to a platform, received an object successfully, and returned to home pose.</p>
-        </div><div class="child-container l3" id="child-container-0-0-1-4">
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-4--1">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            </div>
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-4">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            
-        <div class="node " id="node-0-0-1-5">
-            <i class="node-icon"></i>
-            <i class="node-icon-2"></i>
-            <p class="node-idx">5</p>
-            <p class="node-dt">2024/06/26 20:10 - 20:17</p>
-            <p class="node-summary">I looked ahead and returned to home pose multiple times.</p>
-        </div><div class="child-container l3" id="child-container-0-0-1-5">
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-5--1">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            </div>
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-5">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            
-        <div class="node " id="node-0-0-1-6">
-            <i class="node-icon"></i>
-            <i class="node-icon-2"></i>
-            <p class="node-idx">6</p>
-            <p class="node-dt">2024/06/26 20:17:28 - 20:20:20</p>
-            <p class="node-summary">I performed a series of head movements to look in different directions.</p>
-        </div><div class="child-container l3" id="child-container-0-0-1-6">
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-6--1">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            </div>
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-6">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            </div>
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            
-        <div class="node " id="node-0-0-2">
-            <i class="node-icon"></i>
-            <i class="node-icon-2"></i>
-            <p class="node-idx">2</p>
-            <p class="node-dt">2024/06/26 20:20 - 2024/06/27 15:34</p>
-            <p class="node-summary">From June 26th to June 27th, I engaged in navigation, object interactions, and introduced myself, noting the presence of soy milk.</p>
-        </div><div class="child-container l2" id="child-container-0-0-2">
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-2--1">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
-            </div>
-            <div class="node-children-indicator" id="child-indicator-after-node-0-0-2">
-                <i class="node-icon"></i>
-                <i class="fa-solid fa-ellipsis"></i>
-            </div>
+            <div class="child-container l1" id="child-container-0-0">
+                <div class="node-children-indicator" id="child-indicator-after-node-0-0--1">
+                    <i class="node-icon"></i>
+                    <i class="fa-solid fa-ellipsis"></i>
+                </div>
+
+                <div class="node " id="node-0-0-0">
+                    <i class="node-icon"></i>
+                    <i class="node-icon-2"></i>
+                    <p class="node-idx">0</p>
+                    <p class="node-dt">2024/06/26 18:38 - 19:27</p>
+                    <p class="node-summary">On June 26th, I attempted to hand over and receive objects, then stated my
+                        identity using different phrases.</p>
+                </div>
+                <div class="child-container l2" id="child-container-0-0-0">
+                    <div class="node-children-indicator" id="child-indicator-after-node-0-0-0--1">
+                        <i class="node-icon"></i>
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                </div>
+                <div class="node-children-indicator" id="child-indicator-after-node-0-0-0">
+                    <i class="node-icon"></i>
+                    <i class="fa-solid fa-ellipsis"></i>
+                </div>
+
+                <div class="node " id="node-0-0-1">
+                    <i class="node-icon"></i>
+                    <i class="node-icon-2"></i>
+                    <p class="node-idx">1</p>
+                    <p class="node-dt">2024/06/26 19:29 - 20:20</p>
+                    <p class="node-summary">Later that day, I navigated to various locations, scanned for objects, and
+                        performed a series of movements including object learning and handing over and receiving objects
+                        with mixed success.</p>
+                </div>
+                <div class="child-container l2" id="child-container-0-0-1">
+                    <div class="node-children-indicator" id="child-indicator-after-node-0-0-1--1">
+                        <i class="node-icon"></i>
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+
+                    <div class="node " id="node-0-0-1-0">
+                        <i class="node-icon"></i>
+                        <i class="node-icon-2"></i>
+                        <p class="node-idx">0</p>
+                        <p class="node-dt">2024/06/26 19:29 - 19:45</p>
+                        <p class="node-summary">I navigated to the home location and aborted an attempt to identify
+                            objects.</p>
+                    </div>
+                    <div class="child-container l3" id="child-container-0-0-1-0">
+                        <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-0--1">
+                            <i class="node-icon"></i>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                    </div>
+                    <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-0">
+                        <i class="node-icon"></i>
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+
+                    <div class="node " id="node-0-0-1-1">
+                        <i class="node-icon"></i>
+                        <i class="node-icon-2"></i>
+                        <p class="node-idx">1</p>
+                        <p class="node-dt">2024/06/26 19:48 - 19:51</p>
+                        <p class="node-summary">I moved to the sideboard, looked down, and scanned the area for visible
+                            objects.</p>
+                    </div>
+                    <div class="child-container l3" id="child-container-0-0-1-1">
+                        <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1--1">
+                            <i class="node-icon"></i>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+
+                        <div class="node " id="node-0-0-1-1-0">
+                            <i class="node-icon"></i>
+                            <i class="node-icon-2"></i>
+                            <p class="node-idx">0</p>
+                            <p class="node-dt">2024/06/26 19:48:00 - 19:48:03</p>
+                            <p class="node-summary">Goal: NavigateToNamedLocation(location=sideboard)</p>
+                        </div>
+                        <div class="child-container l4" id="child-container-0-0-1-1-0">
+                            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-0--1">
+                                <i class="node-icon"></i>
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+                        </div>
+                        <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-0">
+                            <i class="node-icon"></i>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+
+                        <div class="node " id="node-0-0-1-1-1">
+                            <i class="node-icon"></i>
+                            <i class="node-icon-2"></i>
+                            <p class="node-idx">1</p>
+                            <p class="node-dt">2024/06/26 19:48:08 - 19:48:08</p>
+                            <p class="node-summary">Goal: LookDown</p>
+                        </div>
+                        <div class="child-container l4" id="child-container-0-0-1-1-1">
+                            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-1--1">
+                                <i class="node-icon"></i>
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+                        </div>
+                        <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-1">
+                            <i class="node-icon"></i>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+
+                        <div class="node " id="node-0-0-1-1-2">
+                            <i class="node-icon"></i>
+                            <i class="node-icon-2"></i>
+                            <p class="node-idx">2</p>
+                            <p class="node-dt">2024/06/26 19:48:57 - 19:51:45</p>
+                            <p class="node-summary">Goal: WhatCanYouSee</p>
+                        </div>
+                        <div class="child-container l4" id="child-container-0-0-1-1-2">
+                            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2--1">
+                                <i class="node-icon"></i>
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+
+                            <div class="node " id="node-0-0-1-1-2-0">
+                                <i class="node-icon"></i>
+                                <i class="node-icon-2"></i>
+                                <p class="node-idx">0</p>
+                                <p class="node-dt">2024/06/26 19:48:57 - 19:48:57</p>
+                                <p class="node-summary">Action: WhatCanYouSee &lt;Running&gt;.</p>
+                            </div>
+                            <div class="child-container l5" id="child-container-0-0-1-1-2-0">
+                                <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-0--1">
+                                    <i class="node-icon"></i>
+                                    <i class="fa-solid fa-ellipsis"></i>
+                                </div>
+                            </div>
+                            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-0">
+                                <i class="node-icon"></i>
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+
+                            <div class="node " id="node-0-0-1-1-2-1">
+                                <i class="node-icon"></i>
+                                <i class="node-icon-2"></i>
+                                <p class="node-idx">1</p>
+                                <p class="node-dt">2024/06/26 19:48:57 - 19:48:57</p>
+                                <p class="node-summary">Action: SetCustomGazeTarget(target=(0.0, 1500.0, 600.0),
+                                    duration=6000) &lt;Succeeded&gt;.</p>
+                            </div>
+                            <div class="child-container l5" id="child-container-0-0-1-1-2-1">
+                                <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-1--1">
+                                    <i class="node-icon"></i>
+                                    <i class="fa-solid fa-ellipsis"></i>
+                                </div>
+                            </div>
+                            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-1">
+                                <i class="node-icon"></i>
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+
+                            <div class="node " id="node-0-0-1-1-2-2">
+                                <i class="node-icon"></i>
+                                <i class="node-icon-2"></i>
+                                <p class="node-idx">2</p>
+                                <p class="node-dt">2024/06/26 19:49:00 - 19:51:42</p>
+                                <p class="node-summary">Goal: WhatCanYouSee &lt;Running&gt;</p>
+                            </div>
+                            <div class="child-container l5" id="child-container-0-0-1-1-2-2">
+                                <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-2--1">
+                                    <i class="node-icon"></i>
+                                    <i class="fa-solid fa-ellipsis"></i>
+                                </div>
+                            </div>
+                            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-2">
+                                <i class="node-icon"></i>
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+
+                            <div class="node " id="node-0-0-1-1-2-3">
+                                <i class="node-icon"></i>
+                                <i class="node-icon-2"></i>
+                                <p class="node-idx">3</p>
+                                <p class="node-dt">2024/06/26 19:51:42 - 19:51:42</p>
+                                <p class="node-summary">Action: SetCustomGazeTarget(target=(0.0, 1500.0, 600.0),
+                                    duration=6000) &lt;Succeeded&gt;.</p>
+                            </div>
+                            <div class="child-container l5" id="child-container-0-0-1-1-2-3">
+                                <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-3--1">
+                                    <i class="node-icon"></i>
+                                    <i class="fa-solid fa-ellipsis"></i>
+                                </div>
+                            </div>
+                            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-3">
+                                <i class="node-icon"></i>
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+
+                            <div class="node " id="node-0-0-1-1-2-4">
+                                <i class="node-icon"></i>
+                                <i class="node-icon-2"></i>
+                                <p class="node-idx">4</p>
+                                <p class="node-dt">2024/06/26 19:51:45 - 19:51:45</p>
+                                <p class="node-summary">Action: Say(text=I do not know this object. Can you tell me the
+                                    name?) &lt;Succeeded&gt;.</p>
+                            </div>
+                            <div class="child-container l5" id="child-container-0-0-1-1-2-4">
+                                <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-4--1">
+                                    <i class="node-icon"></i>
+                                    <i class="fa-solid fa-ellipsis"></i>
+                                </div>
+                            </div>
+                            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-4">
+                                <i class="node-icon"></i>
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+
+                            <div class="node " id="node-0-0-1-1-2-5">
+                                <i class="node-icon"></i>
+                                <i class="node-icon-2"></i>
+                                <p class="node-idx">5</p>
+                                <p class="node-dt">2024/06/26 19:51:45 - 19:51:45</p>
+                                <p class="node-summary">Action: WhatCanYouSee &lt;Succeeded&gt;.</p>
+                            </div>
+                            <div class="child-container l5" id="child-container-0-0-1-1-2-5">
+                                <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-5--1">
+                                    <i class="node-icon"></i>
+                                    <i class="fa-solid fa-ellipsis"></i>
+                                </div>
+                            </div>
+                            <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2-5">
+                                <i class="node-icon"></i>
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+                        </div>
+                        <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1-2">
+                            <i class="node-icon"></i>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                    </div>
+                    <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-1">
+                        <i class="node-icon"></i>
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+
+                    <div class="node " id="node-0-0-1-2">
+                        <i class="node-icon"></i>
+                        <i class="node-icon-2"></i>
+                        <p class="node-idx">2</p>
+                        <p class="node-dt">2024/06/26 19:52:51 - 19:52:56</p>
+                        <p class="node-summary">Goal: ObjectLearning(target=(0.0, 1500.0, 600.0), duration=6000)</p>
+                    </div>
+                    <div class="child-container l3" id="child-container-0-0-1-2">
+                        <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-2--1">
+                            <i class="node-icon"></i>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                    </div>
+                    <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-2">
+                        <i class="node-icon"></i>
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+
+                    <div class="node " id="node-0-0-1-3">
+                        <i class="node-icon"></i>
+                        <i class="node-icon-2"></i>
+                        <p class="node-idx">3</p>
+                        <p class="node-dt">2024/06/26 19:56 - 20:04</p>
+                        <p class="node-summary">I had mixed success in receiving and handing over objects to a
+                            human.</p>
+                    </div>
+                    <div class="child-container l3" id="child-container-0-0-1-3">
+                        <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-3--1">
+                            <i class="node-icon"></i>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                    </div>
+                    <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-3">
+                        <i class="node-icon"></i>
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+
+                    <div class="node " id="node-0-0-1-4">
+                        <i class="node-icon"></i>
+                        <i class="node-icon-2"></i>
+                        <p class="node-idx">4</p>
+                        <p class="node-dt">2024/06/26 20:04 - 20:08</p>
+                        <p class="node-summary">I shaped my hand to a platform, received an object successfully, and
+                            returned to home pose.</p>
+                    </div>
+                    <div class="child-container l3" id="child-container-0-0-1-4">
+                        <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-4--1">
+                            <i class="node-icon"></i>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                    </div>
+                    <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-4">
+                        <i class="node-icon"></i>
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+
+                    <div class="node " id="node-0-0-1-5">
+                        <i class="node-icon"></i>
+                        <i class="node-icon-2"></i>
+                        <p class="node-idx">5</p>
+                        <p class="node-dt">2024/06/26 20:10 - 20:17</p>
+                        <p class="node-summary">I looked ahead and returned to home pose multiple times.</p>
+                    </div>
+                    <div class="child-container l3" id="child-container-0-0-1-5">
+                        <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-5--1">
+                            <i class="node-icon"></i>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                    </div>
+                    <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-5">
+                        <i class="node-icon"></i>
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+
+                    <div class="node " id="node-0-0-1-6">
+                        <i class="node-icon"></i>
+                        <i class="node-icon-2"></i>
+                        <p class="node-idx">6</p>
+                        <p class="node-dt">2024/06/26 20:17:28 - 20:20:20</p>
+                        <p class="node-summary">I performed a series of head movements to look in different
+                            directions.</p>
+                    </div>
+                    <div class="child-container l3" id="child-container-0-0-1-6">
+                        <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-6--1">
+                            <i class="node-icon"></i>
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                    </div>
+                    <div class="node-children-indicator" id="child-indicator-after-node-0-0-1-6">
+                        <i class="node-icon"></i>
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                </div>
+                <div class="node-children-indicator" id="child-indicator-after-node-0-0-1">
+                    <i class="node-icon"></i>
+                    <i class="fa-solid fa-ellipsis"></i>
+                </div>
+
+                <div class="node " id="node-0-0-2">
+                    <i class="node-icon"></i>
+                    <i class="node-icon-2"></i>
+                    <p class="node-idx">2</p>
+                    <p class="node-dt">2024/06/26 20:20 - 2024/06/27 15:34</p>
+                    <p class="node-summary">From June 26th to June 27th, I engaged in navigation, object interactions,
+                        and introduced myself, noting the presence of soy milk.</p>
+                </div>
+                <div class="child-container l2" id="child-container-0-0-2">
+                    <div class="node-children-indicator" id="child-indicator-after-node-0-0-2--1">
+                        <i class="node-icon"></i>
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                </div>
+                <div class="node-children-indicator" id="child-indicator-after-node-0-0-2">
+                    <i class="node-icon"></i>
+                    <i class="fa-solid fa-ellipsis"></i>
+                </div>
             </div>
             <div class="node-children-indicator" id="child-indicator-after-node-0-0">
                 <i class="node-icon"></i>
                 <i class="fa-solid fa-ellipsis"></i>
             </div>
-            </div>
+        </div>
     </div>
 </div>
 
 
 <script type="text/javascript">
-    
+
     var step = 0;
     const numSteps = 13;
+
     function applyStep() {
-      $(".node").addClass("collapsed");
-      $(".child-container").addClass("collapsed");
-      $(".node-children-indicator").addClass("collapsed").removeClass("shown");
-      $(".message").addClass("collapsed");
-      $("#node-0, #child-container-0").removeClass("collapsed");
-        
-      if (step == 0) {$("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");$("#msg-0").removeClass("collapsed")}
-if (step == 1) {$("#node-0-0").removeClass("collapsed");$("#child-container-0-0").removeClass("collapsed");$("#child-indicator-after-node-0-0-2").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");$("#msg-0").removeClass("collapsed");$("#msg-1").removeClass("collapsed")}
-if (step == 2) {$("#node-0-0").removeClass("collapsed");$("#child-container-0-0").removeClass("collapsed");$("#node-0-0-0").removeClass("collapsed");$("#child-container-0-0-0").removeClass("collapsed");$("#node-0-0-1").removeClass("collapsed");$("#child-container-0-0-1").removeClass("collapsed");$("#node-0-0-2").removeClass("collapsed");$("#child-container-0-0-2").removeClass("collapsed");$("#child-indicator-after-node-0-0-0--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-6").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");$("#msg-0").removeClass("collapsed");$("#msg-1").removeClass("collapsed");$("#msg-2").removeClass("collapsed")}
-if (step == 3) {$("#node-0-0").removeClass("collapsed");$("#child-container-0-0").removeClass("collapsed");$("#node-0-0-0").removeClass("collapsed");$("#child-container-0-0-0").removeClass("collapsed");$("#node-0-0-1").removeClass("collapsed");$("#child-container-0-0-1").removeClass("collapsed");$("#node-0-0-2").removeClass("collapsed");$("#child-container-0-0-2").removeClass("collapsed");$("#child-indicator-after-node-0-0-0--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-0").removeClass("collapsed");$("#child-container-0-0-1-0").removeClass("collapsed");$("#node-0-0-1-1").removeClass("collapsed");$("#child-container-0-0-1-1").removeClass("collapsed");$("#node-0-0-1-2").removeClass("collapsed");$("#child-container-0-0-1-2").removeClass("collapsed");$("#node-0-0-1-3").removeClass("collapsed");$("#child-container-0-0-1-3").removeClass("collapsed");$("#node-0-0-1-4").removeClass("collapsed");$("#child-container-0-0-1-4").removeClass("collapsed");$("#node-0-0-1-5").removeClass("collapsed");$("#child-container-0-0-1-5").removeClass("collapsed");$("#node-0-0-1-6").removeClass("collapsed");$("#child-container-0-0-1-6").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-0--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-3--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-4--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-5--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-6--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");$("#msg-0").removeClass("collapsed");$("#msg-1").removeClass("collapsed");$("#msg-2").removeClass("collapsed");$("#msg-3").removeClass("collapsed")}
-if (step == 4) {$("#node-0-0").removeClass("collapsed");$("#child-container-0-0").removeClass("collapsed");$("#node-0-0-0").removeClass("collapsed");$("#child-container-0-0-0").removeClass("collapsed");$("#node-0-0-1").removeClass("collapsed");$("#child-container-0-0-1").removeClass("collapsed");$("#node-0-0-2").removeClass("collapsed");$("#child-container-0-0-2").removeClass("collapsed");$("#child-indicator-after-node-0-0-0--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-0").removeClass("collapsed");$("#child-container-0-0-1-0").removeClass("collapsed");$("#node-0-0-1-1").removeClass("collapsed");$("#child-container-0-0-1-1").removeClass("collapsed");$("#node-0-0-1-2").removeClass("collapsed");$("#child-container-0-0-1-2").removeClass("collapsed");$("#node-0-0-1-3").removeClass("collapsed");$("#child-container-0-0-1-3").removeClass("collapsed");$("#node-0-0-1-4").removeClass("collapsed");$("#child-container-0-0-1-4").removeClass("collapsed");$("#node-0-0-1-5").removeClass("collapsed");$("#child-container-0-0-1-5").removeClass("collapsed");$("#node-0-0-1-6").removeClass("collapsed");$("#child-container-0-0-1-6").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-0--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-1-0").removeClass("collapsed");$("#child-container-0-0-1-1-0").removeClass("collapsed");$("#node-0-0-1-1-1").removeClass("collapsed");$("#child-container-0-0-1-1-1").removeClass("collapsed");$("#node-0-0-1-1-2").removeClass("collapsed");$("#child-container-0-0-1-1-2").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-0--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-1--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-5").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-3--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-4--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-5--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-6--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");$("#msg-0").removeClass("collapsed");$("#msg-1").removeClass("collapsed");$("#msg-2").removeClass("collapsed");$("#msg-3").removeClass("collapsed");$("#msg-4").removeClass("collapsed")}
-if (step == 5) {$("#node-0-0").removeClass("collapsed");$("#child-container-0-0").removeClass("collapsed");$("#node-0-0-0").removeClass("collapsed");$("#child-container-0-0-0").removeClass("collapsed");$("#node-0-0-1").removeClass("collapsed");$("#child-container-0-0-1").removeClass("collapsed");$("#node-0-0-2").removeClass("collapsed");$("#child-container-0-0-2").removeClass("collapsed");$("#child-indicator-after-node-0-0-0--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-0").removeClass("collapsed");$("#child-container-0-0-1-0").removeClass("collapsed");$("#node-0-0-1-1").removeClass("collapsed");$("#child-container-0-0-1-1").removeClass("collapsed");$("#node-0-0-1-2").removeClass("collapsed");$("#child-container-0-0-1-2").removeClass("collapsed");$("#node-0-0-1-3").removeClass("collapsed");$("#child-container-0-0-1-3").removeClass("collapsed");$("#node-0-0-1-4").removeClass("collapsed");$("#child-container-0-0-1-4").removeClass("collapsed");$("#node-0-0-1-5").removeClass("collapsed");$("#child-container-0-0-1-5").removeClass("collapsed");$("#node-0-0-1-6").removeClass("collapsed");$("#child-container-0-0-1-6").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-0--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-1-0").removeClass("collapsed");$("#child-container-0-0-1-1-0").removeClass("collapsed");$("#node-0-0-1-1-1").removeClass("collapsed");$("#child-container-0-0-1-1-1").removeClass("collapsed");$("#node-0-0-1-1-2").removeClass("collapsed");$("#child-container-0-0-1-1-2").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-0--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-1--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-1-2-0").removeClass("collapsed");$("#child-container-0-0-1-1-2-0").removeClass("collapsed");$("#node-0-0-1-1-2-1").removeClass("collapsed");$("#child-container-0-0-1-1-2-1").removeClass("collapsed");$("#node-0-0-1-1-2-2").removeClass("collapsed");$("#child-container-0-0-1-1-2-2").removeClass("collapsed");$("#node-0-0-1-1-2-3").removeClass("collapsed");$("#child-container-0-0-1-1-2-3").removeClass("collapsed");$("#node-0-0-1-1-2-4").removeClass("collapsed");$("#child-container-0-0-1-1-2-4").removeClass("collapsed");$("#node-0-0-1-1-2-5").removeClass("collapsed");$("#child-container-0-0-1-1-2-5").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-0--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-1--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-3--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-4--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-5--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-3--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-4--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-5--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-6--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");$("#msg-0").removeClass("collapsed");$("#msg-1").removeClass("collapsed");$("#msg-2").removeClass("collapsed");$("#msg-3").removeClass("collapsed");$("#msg-4").removeClass("collapsed");$("#msg-5").removeClass("collapsed")}
-if (step == 6) {$("#node-0-0").removeClass("collapsed");$("#child-container-0-0").removeClass("collapsed");$("#node-0-0-0").removeClass("collapsed");$("#child-container-0-0-0").removeClass("collapsed");$("#node-0-0-1").removeClass("collapsed");$("#child-container-0-0-1").removeClass("collapsed");$("#node-0-0-2").removeClass("collapsed");$("#child-container-0-0-2").removeClass("collapsed");$("#child-indicator-after-node-0-0-0--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-0").removeClass("collapsed");$("#child-container-0-0-1-0").removeClass("collapsed");$("#node-0-0-1-1").removeClass("collapsed");$("#child-container-0-0-1-1").removeClass("collapsed");$("#node-0-0-1-2").removeClass("collapsed");$("#child-container-0-0-1-2").removeClass("collapsed");$("#node-0-0-1-3").removeClass("collapsed");$("#child-container-0-0-1-3").removeClass("collapsed");$("#node-0-0-1-4").removeClass("collapsed");$("#child-container-0-0-1-4").removeClass("collapsed");$("#node-0-0-1-5").removeClass("collapsed");$("#child-container-0-0-1-5").removeClass("collapsed");$("#node-0-0-1-6").removeClass("collapsed");$("#child-container-0-0-1-6").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-0--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-1-0").removeClass("collapsed");$("#child-container-0-0-1-1-0").removeClass("collapsed");$("#node-0-0-1-1-1").removeClass("collapsed");$("#child-container-0-0-1-1-1").removeClass("collapsed");$("#node-0-0-1-1-2").removeClass("collapsed");$("#child-container-0-0-1-1-2").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-0--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-1--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-1-2-0").removeClass("collapsed");$("#child-container-0-0-1-1-2-0").removeClass("collapsed");$("#node-0-0-1-1-2-1").removeClass("collapsed");$("#child-container-0-0-1-1-2-1").removeClass("collapsed");$("#node-0-0-1-1-2-2").removeClass("collapsed");$("#child-container-0-0-1-1-2-2").removeClass("collapsed");$("#node-0-0-1-1-2-3").removeClass("collapsed");$("#child-container-0-0-1-1-2-3").removeClass("collapsed");$("#node-0-0-1-1-2-4").removeClass("collapsed");$("#child-container-0-0-1-1-2-4").removeClass("collapsed");$("#node-0-0-1-1-2-5").removeClass("collapsed");$("#child-container-0-0-1-1-2-5").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-0--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-1--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-3--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-4--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-5--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-3--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-4--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-5--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-6--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");$("#msg-0").removeClass("collapsed");$("#msg-1").removeClass("collapsed");$("#msg-2").removeClass("collapsed");$("#msg-3").removeClass("collapsed");$("#msg-4").removeClass("collapsed");$("#msg-5").removeClass("collapsed");$("#msg-6").removeClass("collapsed");$("#msg-7").removeClass("collapsed")}
-if (step == 7) {$("#node-0-0").removeClass("collapsed");$("#child-container-0-0").removeClass("collapsed");$("#node-0-0-0").removeClass("collapsed");$("#child-container-0-0-0").removeClass("collapsed");$("#node-0-0-1").removeClass("collapsed");$("#child-container-0-0-1").removeClass("collapsed");$("#node-0-0-2").removeClass("collapsed");$("#child-container-0-0-2").removeClass("collapsed");$("#child-indicator-after-node-0-0-0--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-0").removeClass("collapsed");$("#child-container-0-0-1-0").removeClass("collapsed");$("#node-0-0-1-1").removeClass("collapsed");$("#child-container-0-0-1-1").removeClass("collapsed");$("#node-0-0-1-2").removeClass("collapsed");$("#child-container-0-0-1-2").removeClass("collapsed");$("#node-0-0-1-3").removeClass("collapsed");$("#child-container-0-0-1-3").removeClass("collapsed");$("#node-0-0-1-4").removeClass("collapsed");$("#child-container-0-0-1-4").removeClass("collapsed");$("#node-0-0-1-5").removeClass("collapsed");$("#child-container-0-0-1-5").removeClass("collapsed");$("#node-0-0-1-6").removeClass("collapsed");$("#child-container-0-0-1-6").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-0--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-1-0").removeClass("collapsed");$("#child-container-0-0-1-1-0").removeClass("collapsed");$("#node-0-0-1-1-1").removeClass("collapsed");$("#child-container-0-0-1-1-1").removeClass("collapsed");$("#node-0-0-1-1-2").removeClass("collapsed");$("#child-container-0-0-1-1-2").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-0--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-1--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-1-2-0").removeClass("collapsed");$("#child-container-0-0-1-1-2-0").removeClass("collapsed");$("#node-0-0-1-1-2-1").removeClass("collapsed");$("#child-container-0-0-1-1-2-1").removeClass("collapsed");$("#node-0-0-1-1-2-2").removeClass("collapsed");$("#child-container-0-0-1-1-2-2").removeClass("collapsed");$("#node-0-0-1-1-2-3").removeClass("collapsed");$("#child-container-0-0-1-1-2-3").removeClass("collapsed");$("#node-0-0-1-1-2-4").removeClass("collapsed");$("#child-container-0-0-1-1-2-4").removeClass("collapsed");$("#node-0-0-1-1-2-5").removeClass("collapsed");$("#child-container-0-0-1-1-2-5").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-0--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-1--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-3--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-4--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-5--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-3--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-4--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-5--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-6--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");$("#msg-0").removeClass("collapsed");$("#msg-1").removeClass("collapsed");$("#msg-2").removeClass("collapsed");$("#msg-3").removeClass("collapsed");$("#msg-4").removeClass("collapsed");$("#msg-5").removeClass("collapsed");$("#msg-6").removeClass("collapsed");$("#msg-7").removeClass("collapsed");$("#msg-8").removeClass("collapsed");$("#msg-9").removeClass("collapsed")}
-if (step == 8) {$("#node-0-0").removeClass("collapsed");$("#child-container-0-0").removeClass("collapsed");$("#node-0-0-0").removeClass("collapsed");$("#child-container-0-0-0").removeClass("collapsed");$("#node-0-0-1").removeClass("collapsed");$("#child-container-0-0-1").removeClass("collapsed");$("#node-0-0-2").removeClass("collapsed");$("#child-container-0-0-2").removeClass("collapsed");$("#child-indicator-after-node-0-0-0--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-0").removeClass("collapsed");$("#child-container-0-0-1-0").removeClass("collapsed");$("#node-0-0-1-1").removeClass("collapsed");$("#child-container-0-0-1-1").removeClass("collapsed");$("#node-0-0-1-2").removeClass("collapsed");$("#child-container-0-0-1-2").removeClass("collapsed");$("#node-0-0-1-3").removeClass("collapsed");$("#child-container-0-0-1-3").removeClass("collapsed");$("#node-0-0-1-4").removeClass("collapsed");$("#child-container-0-0-1-4").removeClass("collapsed");$("#node-0-0-1-5").removeClass("collapsed");$("#child-container-0-0-1-5").removeClass("collapsed");$("#node-0-0-1-6").removeClass("collapsed");$("#child-container-0-0-1-6").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-0--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-1-0").removeClass("collapsed");$("#child-container-0-0-1-1-0").removeClass("collapsed");$("#node-0-0-1-1-1").removeClass("collapsed");$("#child-container-0-0-1-1-1").removeClass("collapsed");$("#node-0-0-1-1-2").removeClass("collapsed");$("#child-container-0-0-1-1-2").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-0--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-1--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-1-2-0").removeClass("collapsed");$("#child-container-0-0-1-1-2-0").removeClass("collapsed");$("#node-0-0-1-1-2-1").removeClass("collapsed");$("#child-container-0-0-1-1-2-1").removeClass("collapsed");$("#node-0-0-1-1-2-2").removeClass("collapsed");$("#child-container-0-0-1-1-2-2").removeClass("collapsed");$("#node-0-0-1-1-2-3").removeClass("collapsed");$("#child-container-0-0-1-1-2-3").removeClass("collapsed");$("#node-0-0-1-1-2-4").removeClass("collapsed");$("#child-container-0-0-1-1-2-4").removeClass("collapsed");$("#node-0-0-1-1-2-5").removeClass("collapsed");$("#child-container-0-0-1-1-2-5").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-0--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-1--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-3--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-4--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-5--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-3--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-4--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-5--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-6--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");$("#msg-0").removeClass("collapsed");$("#msg-1").removeClass("collapsed");$("#msg-2").removeClass("collapsed");$("#msg-3").removeClass("collapsed");$("#msg-4").removeClass("collapsed");$("#msg-5").removeClass("collapsed");$("#msg-6").removeClass("collapsed");$("#msg-7").removeClass("collapsed");$("#msg-8").removeClass("collapsed");$("#msg-9").removeClass("collapsed");$("#msg-10").removeClass("collapsed");$("#msg-11").removeClass("collapsed")}
-if (step == 9) {$("#node-0-0").removeClass("collapsed");$("#child-container-0-0").removeClass("collapsed");$("#node-0-0-0").removeClass("collapsed");$("#child-container-0-0-0").removeClass("collapsed");$("#node-0-0-1").removeClass("collapsed");$("#child-container-0-0-1").removeClass("collapsed");$("#node-0-0-2").removeClass("collapsed");$("#child-container-0-0-2").removeClass("collapsed");$("#child-indicator-after-node-0-0-0--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-0").removeClass("collapsed");$("#child-container-0-0-1-0").removeClass("collapsed");$("#node-0-0-1-1").removeClass("collapsed");$("#child-container-0-0-1-1").removeClass("collapsed");$("#node-0-0-1-2").removeClass("collapsed");$("#child-container-0-0-1-2").removeClass("collapsed");$("#node-0-0-1-3").removeClass("collapsed");$("#child-container-0-0-1-3").removeClass("collapsed");$("#node-0-0-1-4").removeClass("collapsed");$("#child-container-0-0-1-4").removeClass("collapsed");$("#node-0-0-1-5").removeClass("collapsed");$("#child-container-0-0-1-5").removeClass("collapsed");$("#node-0-0-1-6").removeClass("collapsed");$("#child-container-0-0-1-6").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-0--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-1-0").removeClass("collapsed");$("#child-container-0-0-1-1-0").removeClass("collapsed");$("#node-0-0-1-1-1").removeClass("collapsed");$("#child-container-0-0-1-1-1").removeClass("collapsed");$("#node-0-0-1-1-2").removeClass("collapsed");$("#child-container-0-0-1-1-2").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-0--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-1--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-1-2-0").removeClass("collapsed");$("#child-container-0-0-1-1-2-0").removeClass("collapsed");$("#node-0-0-1-1-2-1").removeClass("collapsed");$("#child-container-0-0-1-1-2-1").removeClass("collapsed");$("#node-0-0-1-1-2-2").removeClass("collapsed");$("#child-container-0-0-1-1-2-2").removeClass("collapsed");$("#node-0-0-1-1-2-3").removeClass("collapsed");$("#child-container-0-0-1-1-2-3").removeClass("collapsed");$("#node-0-0-1-1-2-4").removeClass("collapsed");$("#child-container-0-0-1-1-2-4").removeClass("collapsed");$("#node-0-0-1-1-2-5").removeClass("collapsed");$("#child-container-0-0-1-1-2-5").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-0--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-1--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-3--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-4--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-5--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-3--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-4--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-5--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-6--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");$("#msg-0").removeClass("collapsed");$("#msg-1").removeClass("collapsed");$("#msg-2").removeClass("collapsed");$("#msg-3").removeClass("collapsed");$("#msg-4").removeClass("collapsed");$("#msg-5").removeClass("collapsed");$("#msg-6").removeClass("collapsed");$("#msg-7").removeClass("collapsed");$("#msg-8").removeClass("collapsed");$("#msg-9").removeClass("collapsed");$("#msg-10").removeClass("collapsed");$("#msg-11").removeClass("collapsed");$("#msg-12").removeClass("collapsed");$("#msg-13").removeClass("collapsed")}
-if (step == 10) {$("#node-0-0").removeClass("collapsed");$("#child-container-0-0").removeClass("collapsed");$("#node-0-0-0").removeClass("collapsed");$("#child-container-0-0-0").removeClass("collapsed");$("#node-0-0-1").removeClass("collapsed");$("#child-container-0-0-1").removeClass("collapsed");$("#node-0-0-2").removeClass("collapsed");$("#child-container-0-0-2").removeClass("collapsed");$("#child-indicator-after-node-0-0-0--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-0").removeClass("collapsed");$("#child-container-0-0-1-0").removeClass("collapsed");$("#node-0-0-1-1").removeClass("collapsed");$("#child-container-0-0-1-1").removeClass("collapsed");$("#node-0-0-1-2").removeClass("collapsed");$("#child-container-0-0-1-2").removeClass("collapsed");$("#node-0-0-1-3").removeClass("collapsed");$("#child-container-0-0-1-3").removeClass("collapsed");$("#node-0-0-1-4").removeClass("collapsed");$("#child-container-0-0-1-4").removeClass("collapsed");$("#node-0-0-1-5").removeClass("collapsed");$("#child-container-0-0-1-5").removeClass("collapsed");$("#node-0-0-1-6").removeClass("collapsed");$("#child-container-0-0-1-6").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-0--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-1-0").removeClass("collapsed");$("#child-container-0-0-1-1-0").removeClass("collapsed");$("#node-0-0-1-1-1").removeClass("collapsed");$("#child-container-0-0-1-1-1").removeClass("collapsed");$("#node-0-0-1-1-2").removeClass("collapsed");$("#child-container-0-0-1-1-2").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-0--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-1--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-1-2-0").removeClass("collapsed");$("#child-container-0-0-1-1-2-0").removeClass("collapsed");$("#node-0-0-1-1-2-1").removeClass("collapsed");$("#child-container-0-0-1-1-2-1").removeClass("collapsed");$("#node-0-0-1-1-2-2").removeClass("collapsed");$("#child-container-0-0-1-1-2-2").removeClass("collapsed");$("#node-0-0-1-1-2-3").removeClass("collapsed");$("#child-container-0-0-1-1-2-3").removeClass("collapsed");$("#node-0-0-1-1-2-4").removeClass("collapsed");$("#child-container-0-0-1-1-2-4").removeClass("collapsed");$("#node-0-0-1-1-2-5").removeClass("collapsed");$("#child-container-0-0-1-1-2-5").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-0--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-1--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-3--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-4--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-5--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-3--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-4--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-5--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-6--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");$("#msg-0").removeClass("collapsed");$("#msg-1").removeClass("collapsed");$("#msg-2").removeClass("collapsed");$("#msg-3").removeClass("collapsed");$("#msg-4").removeClass("collapsed");$("#msg-5").removeClass("collapsed");$("#msg-6").removeClass("collapsed");$("#msg-7").removeClass("collapsed");$("#msg-8").removeClass("collapsed");$("#msg-9").removeClass("collapsed");$("#msg-10").removeClass("collapsed");$("#msg-11").removeClass("collapsed");$("#msg-12").removeClass("collapsed");$("#msg-13").removeClass("collapsed");$("#msg-14").removeClass("collapsed");$("#msg-15").removeClass("collapsed")}
-if (step == 11) {$("#node-0-0").removeClass("collapsed");$("#child-container-0-0").removeClass("collapsed");$("#node-0-0-0").removeClass("collapsed");$("#child-container-0-0-0").removeClass("collapsed");$("#node-0-0-1").removeClass("collapsed");$("#child-container-0-0-1").removeClass("collapsed");$("#node-0-0-2").removeClass("collapsed");$("#child-container-0-0-2").removeClass("collapsed");$("#child-indicator-after-node-0-0-0--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-0").removeClass("collapsed");$("#child-container-0-0-1-0").removeClass("collapsed");$("#node-0-0-1-1").removeClass("collapsed");$("#child-container-0-0-1-1").removeClass("collapsed");$("#node-0-0-1-2").removeClass("collapsed");$("#child-container-0-0-1-2").removeClass("collapsed");$("#node-0-0-1-3").removeClass("collapsed");$("#child-container-0-0-1-3").removeClass("collapsed");$("#node-0-0-1-4").removeClass("collapsed");$("#child-container-0-0-1-4").removeClass("collapsed");$("#node-0-0-1-5").removeClass("collapsed");$("#child-container-0-0-1-5").removeClass("collapsed");$("#node-0-0-1-6").removeClass("collapsed");$("#child-container-0-0-1-6").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-0--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-1-0").removeClass("collapsed");$("#child-container-0-0-1-1-0").removeClass("collapsed");$("#node-0-0-1-1-1").removeClass("collapsed");$("#child-container-0-0-1-1-1").removeClass("collapsed");$("#node-0-0-1-1-2").removeClass("collapsed");$("#child-container-0-0-1-1-2").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-0--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-1--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-1-2-0").removeClass("collapsed");$("#child-container-0-0-1-1-2-0").removeClass("collapsed");$("#node-0-0-1-1-2-1").removeClass("collapsed");$("#child-container-0-0-1-1-2-1").removeClass("collapsed");$("#node-0-0-1-1-2-2").removeClass("collapsed");$("#child-container-0-0-1-1-2-2").removeClass("collapsed");$("#node-0-0-1-1-2-3").removeClass("collapsed");$("#child-container-0-0-1-1-2-3").removeClass("collapsed");$("#node-0-0-1-1-2-4").removeClass("collapsed");$("#child-container-0-0-1-1-2-4").removeClass("collapsed");$("#node-0-0-1-1-2-5").removeClass("collapsed");$("#child-container-0-0-1-1-2-5").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-0--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-1--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-3--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-4--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-5--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-3--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-4--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-5--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-6--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");$("#msg-0").removeClass("collapsed");$("#msg-1").removeClass("collapsed");$("#msg-2").removeClass("collapsed");$("#msg-3").removeClass("collapsed");$("#msg-4").removeClass("collapsed");$("#msg-5").removeClass("collapsed");$("#msg-6").removeClass("collapsed");$("#msg-7").removeClass("collapsed");$("#msg-8").removeClass("collapsed");$("#msg-9").removeClass("collapsed");$("#msg-10").removeClass("collapsed");$("#msg-11").removeClass("collapsed");$("#msg-12").removeClass("collapsed");$("#msg-13").removeClass("collapsed");$("#msg-14").removeClass("collapsed");$("#msg-15").removeClass("collapsed");$("#msg-16").removeClass("collapsed");$("#msg-17").removeClass("collapsed")}
-if (step == 12) {$("#node-0-0").removeClass("collapsed");$("#child-container-0-0").removeClass("collapsed");$("#node-0-0-0").removeClass("collapsed");$("#child-container-0-0-0").removeClass("collapsed");$("#node-0-0-1").removeClass("collapsed");$("#child-container-0-0-1").removeClass("collapsed");$("#node-0-0-2").removeClass("collapsed");$("#child-container-0-0-2").removeClass("collapsed");$("#child-indicator-after-node-0-0-0--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-0").removeClass("collapsed");$("#child-container-0-0-1-0").removeClass("collapsed");$("#node-0-0-1-1").removeClass("collapsed");$("#child-container-0-0-1-1").removeClass("collapsed");$("#node-0-0-1-2").removeClass("collapsed");$("#child-container-0-0-1-2").removeClass("collapsed");$("#node-0-0-1-3").removeClass("collapsed");$("#child-container-0-0-1-3").removeClass("collapsed");$("#node-0-0-1-4").removeClass("collapsed");$("#child-container-0-0-1-4").removeClass("collapsed");$("#node-0-0-1-5").removeClass("collapsed");$("#child-container-0-0-1-5").removeClass("collapsed");$("#node-0-0-1-6").removeClass("collapsed");$("#child-container-0-0-1-6").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-0--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-1-0").removeClass("collapsed");$("#child-container-0-0-1-1-0").removeClass("collapsed");$("#node-0-0-1-1-1").removeClass("collapsed");$("#child-container-0-0-1-1-1").removeClass("collapsed");$("#node-0-0-1-1-2").removeClass("collapsed");$("#child-container-0-0-1-1-2").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-0--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-1--1").addClass("shown").removeClass("collapsed");$("#node-0-0-1-1-2-0").removeClass("collapsed");$("#child-container-0-0-1-1-2-0").removeClass("collapsed");$("#node-0-0-1-1-2-1").removeClass("collapsed");$("#child-container-0-0-1-1-2-1").removeClass("collapsed");$("#node-0-0-1-1-2-2").removeClass("collapsed");$("#child-container-0-0-1-1-2-2").removeClass("collapsed");$("#node-0-0-1-1-2-3").removeClass("collapsed");$("#child-container-0-0-1-1-2-3").removeClass("collapsed");$("#node-0-0-1-1-2-4").removeClass("collapsed");$("#child-container-0-0-1-1-2-4").removeClass("collapsed");$("#node-0-0-1-1-2-5").removeClass("collapsed");$("#child-container-0-0-1-1-2-5").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-0--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-1--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-3--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-4--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-1-2-5--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-3--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-4--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-5--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-1-6--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0-2--1").addClass("shown").removeClass("collapsed");$("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");$("#msg-0").removeClass("collapsed");$("#msg-1").removeClass("collapsed");$("#msg-2").removeClass("collapsed");$("#msg-3").removeClass("collapsed");$("#msg-4").removeClass("collapsed");$("#msg-5").removeClass("collapsed");$("#msg-6").removeClass("collapsed");$("#msg-7").removeClass("collapsed");$("#msg-8").removeClass("collapsed");$("#msg-9").removeClass("collapsed");$("#msg-10").removeClass("collapsed");$("#msg-11").removeClass("collapsed");$("#msg-12").removeClass("collapsed");$("#msg-13").removeClass("collapsed");$("#msg-14").removeClass("collapsed");$("#msg-15").removeClass("collapsed");$("#msg-16").removeClass("collapsed");$("#msg-17").removeClass("collapsed");$("#msg-18").removeClass("collapsed")}
+        $(".node").addClass("collapsed");
+        $(".child-container").addClass("collapsed");
+        $(".node-children-indicator").addClass("collapsed").removeClass("shown");
+        $(".message").addClass("collapsed");
+        $("#node-0, #child-container-0").removeClass("collapsed");
+
+        if (step == 0) {
+            $("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");
+            $("#msg-0").removeClass("collapsed")
+        }
+        if (step == 1) {
+            $("#node-0-0").removeClass("collapsed");
+            $("#child-container-0-0").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-2").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");
+            $("#msg-0").removeClass("collapsed");
+            $("#msg-1").removeClass("collapsed")
+        }
+        if (step == 2) {
+            $("#node-0-0").removeClass("collapsed");
+            $("#child-container-0-0").removeClass("collapsed");
+            $("#node-0-0-0").removeClass("collapsed");
+            $("#child-container-0-0-0").removeClass("collapsed");
+            $("#node-0-0-1").removeClass("collapsed");
+            $("#child-container-0-0-1").removeClass("collapsed");
+            $("#node-0-0-2").removeClass("collapsed");
+            $("#child-container-0-0-2").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-0--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-6").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");
+            $("#msg-0").removeClass("collapsed");
+            $("#msg-1").removeClass("collapsed");
+            $("#msg-2").removeClass("collapsed")
+        }
+        if (step == 3) {
+            $("#node-0-0").removeClass("collapsed");
+            $("#child-container-0-0").removeClass("collapsed");
+            $("#node-0-0-0").removeClass("collapsed");
+            $("#child-container-0-0-0").removeClass("collapsed");
+            $("#node-0-0-1").removeClass("collapsed");
+            $("#child-container-0-0-1").removeClass("collapsed");
+            $("#node-0-0-2").removeClass("collapsed");
+            $("#child-container-0-0-2").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-0--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-0").removeClass("collapsed");
+            $("#child-container-0-0-1-0").removeClass("collapsed");
+            $("#node-0-0-1-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1").removeClass("collapsed");
+            $("#node-0-0-1-2").removeClass("collapsed");
+            $("#child-container-0-0-1-2").removeClass("collapsed");
+            $("#node-0-0-1-3").removeClass("collapsed");
+            $("#child-container-0-0-1-3").removeClass("collapsed");
+            $("#node-0-0-1-4").removeClass("collapsed");
+            $("#child-container-0-0-1-4").removeClass("collapsed");
+            $("#node-0-0-1-5").removeClass("collapsed");
+            $("#child-container-0-0-1-5").removeClass("collapsed");
+            $("#node-0-0-1-6").removeClass("collapsed");
+            $("#child-container-0-0-1-6").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-0--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-3--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-4--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-5--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-6--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");
+            $("#msg-0").removeClass("collapsed");
+            $("#msg-1").removeClass("collapsed");
+            $("#msg-2").removeClass("collapsed");
+            $("#msg-3").removeClass("collapsed")
+        }
+        if (step == 4) {
+            $("#node-0-0").removeClass("collapsed");
+            $("#child-container-0-0").removeClass("collapsed");
+            $("#node-0-0-0").removeClass("collapsed");
+            $("#child-container-0-0-0").removeClass("collapsed");
+            $("#node-0-0-1").removeClass("collapsed");
+            $("#child-container-0-0-1").removeClass("collapsed");
+            $("#node-0-0-2").removeClass("collapsed");
+            $("#child-container-0-0-2").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-0--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-0").removeClass("collapsed");
+            $("#child-container-0-0-1-0").removeClass("collapsed");
+            $("#node-0-0-1-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1").removeClass("collapsed");
+            $("#node-0-0-1-2").removeClass("collapsed");
+            $("#child-container-0-0-1-2").removeClass("collapsed");
+            $("#node-0-0-1-3").removeClass("collapsed");
+            $("#child-container-0-0-1-3").removeClass("collapsed");
+            $("#node-0-0-1-4").removeClass("collapsed");
+            $("#child-container-0-0-1-4").removeClass("collapsed");
+            $("#node-0-0-1-5").removeClass("collapsed");
+            $("#child-container-0-0-1-5").removeClass("collapsed");
+            $("#node-0-0-1-6").removeClass("collapsed");
+            $("#child-container-0-0-1-6").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-0--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-1-0").removeClass("collapsed");
+            $("#child-container-0-0-1-1-0").removeClass("collapsed");
+            $("#node-0-0-1-1-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1-1").removeClass("collapsed");
+            $("#node-0-0-1-1-2").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-0--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-1--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-5").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-3--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-4--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-5--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-6--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");
+            $("#msg-0").removeClass("collapsed");
+            $("#msg-1").removeClass("collapsed");
+            $("#msg-2").removeClass("collapsed");
+            $("#msg-3").removeClass("collapsed");
+            $("#msg-4").removeClass("collapsed")
+        }
+        if (step == 5) {
+            $("#node-0-0").removeClass("collapsed");
+            $("#child-container-0-0").removeClass("collapsed");
+            $("#node-0-0-0").removeClass("collapsed");
+            $("#child-container-0-0-0").removeClass("collapsed");
+            $("#node-0-0-1").removeClass("collapsed");
+            $("#child-container-0-0-1").removeClass("collapsed");
+            $("#node-0-0-2").removeClass("collapsed");
+            $("#child-container-0-0-2").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-0--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-0").removeClass("collapsed");
+            $("#child-container-0-0-1-0").removeClass("collapsed");
+            $("#node-0-0-1-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1").removeClass("collapsed");
+            $("#node-0-0-1-2").removeClass("collapsed");
+            $("#child-container-0-0-1-2").removeClass("collapsed");
+            $("#node-0-0-1-3").removeClass("collapsed");
+            $("#child-container-0-0-1-3").removeClass("collapsed");
+            $("#node-0-0-1-4").removeClass("collapsed");
+            $("#child-container-0-0-1-4").removeClass("collapsed");
+            $("#node-0-0-1-5").removeClass("collapsed");
+            $("#child-container-0-0-1-5").removeClass("collapsed");
+            $("#node-0-0-1-6").removeClass("collapsed");
+            $("#child-container-0-0-1-6").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-0--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-1-0").removeClass("collapsed");
+            $("#child-container-0-0-1-1-0").removeClass("collapsed");
+            $("#node-0-0-1-1-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1-1").removeClass("collapsed");
+            $("#node-0-0-1-1-2").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-0--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-1--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-1-2-0").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-0").removeClass("collapsed");
+            $("#node-0-0-1-1-2-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-1").removeClass("collapsed");
+            $("#node-0-0-1-1-2-2").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-2").removeClass("collapsed");
+            $("#node-0-0-1-1-2-3").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-3").removeClass("collapsed");
+            $("#node-0-0-1-1-2-4").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-4").removeClass("collapsed");
+            $("#node-0-0-1-1-2-5").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-5").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-0--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-1--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-3--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-4--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-5--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-3--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-4--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-5--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-6--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");
+            $("#msg-0").removeClass("collapsed");
+            $("#msg-1").removeClass("collapsed");
+            $("#msg-2").removeClass("collapsed");
+            $("#msg-3").removeClass("collapsed");
+            $("#msg-4").removeClass("collapsed");
+            $("#msg-5").removeClass("collapsed")
+        }
+        if (step == 6) {
+            $("#node-0-0").removeClass("collapsed");
+            $("#child-container-0-0").removeClass("collapsed");
+            $("#node-0-0-0").removeClass("collapsed");
+            $("#child-container-0-0-0").removeClass("collapsed");
+            $("#node-0-0-1").removeClass("collapsed");
+            $("#child-container-0-0-1").removeClass("collapsed");
+            $("#node-0-0-2").removeClass("collapsed");
+            $("#child-container-0-0-2").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-0--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-0").removeClass("collapsed");
+            $("#child-container-0-0-1-0").removeClass("collapsed");
+            $("#node-0-0-1-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1").removeClass("collapsed");
+            $("#node-0-0-1-2").removeClass("collapsed");
+            $("#child-container-0-0-1-2").removeClass("collapsed");
+            $("#node-0-0-1-3").removeClass("collapsed");
+            $("#child-container-0-0-1-3").removeClass("collapsed");
+            $("#node-0-0-1-4").removeClass("collapsed");
+            $("#child-container-0-0-1-4").removeClass("collapsed");
+            $("#node-0-0-1-5").removeClass("collapsed");
+            $("#child-container-0-0-1-5").removeClass("collapsed");
+            $("#node-0-0-1-6").removeClass("collapsed");
+            $("#child-container-0-0-1-6").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-0--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-1-0").removeClass("collapsed");
+            $("#child-container-0-0-1-1-0").removeClass("collapsed");
+            $("#node-0-0-1-1-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1-1").removeClass("collapsed");
+            $("#node-0-0-1-1-2").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-0--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-1--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-1-2-0").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-0").removeClass("collapsed");
+            $("#node-0-0-1-1-2-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-1").removeClass("collapsed");
+            $("#node-0-0-1-1-2-2").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-2").removeClass("collapsed");
+            $("#node-0-0-1-1-2-3").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-3").removeClass("collapsed");
+            $("#node-0-0-1-1-2-4").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-4").removeClass("collapsed");
+            $("#node-0-0-1-1-2-5").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-5").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-0--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-1--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-3--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-4--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-5--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-3--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-4--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-5--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-6--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");
+            $("#msg-0").removeClass("collapsed");
+            $("#msg-1").removeClass("collapsed");
+            $("#msg-2").removeClass("collapsed");
+            $("#msg-3").removeClass("collapsed");
+            $("#msg-4").removeClass("collapsed");
+            $("#msg-5").removeClass("collapsed");
+            $("#msg-6").removeClass("collapsed");
+            $("#msg-7").removeClass("collapsed")
+        }
+        if (step == 7) {
+            $("#node-0-0").removeClass("collapsed");
+            $("#child-container-0-0").removeClass("collapsed");
+            $("#node-0-0-0").removeClass("collapsed");
+            $("#child-container-0-0-0").removeClass("collapsed");
+            $("#node-0-0-1").removeClass("collapsed");
+            $("#child-container-0-0-1").removeClass("collapsed");
+            $("#node-0-0-2").removeClass("collapsed");
+            $("#child-container-0-0-2").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-0--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-0").removeClass("collapsed");
+            $("#child-container-0-0-1-0").removeClass("collapsed");
+            $("#node-0-0-1-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1").removeClass("collapsed");
+            $("#node-0-0-1-2").removeClass("collapsed");
+            $("#child-container-0-0-1-2").removeClass("collapsed");
+            $("#node-0-0-1-3").removeClass("collapsed");
+            $("#child-container-0-0-1-3").removeClass("collapsed");
+            $("#node-0-0-1-4").removeClass("collapsed");
+            $("#child-container-0-0-1-4").removeClass("collapsed");
+            $("#node-0-0-1-5").removeClass("collapsed");
+            $("#child-container-0-0-1-5").removeClass("collapsed");
+            $("#node-0-0-1-6").removeClass("collapsed");
+            $("#child-container-0-0-1-6").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-0--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-1-0").removeClass("collapsed");
+            $("#child-container-0-0-1-1-0").removeClass("collapsed");
+            $("#node-0-0-1-1-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1-1").removeClass("collapsed");
+            $("#node-0-0-1-1-2").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-0--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-1--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-1-2-0").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-0").removeClass("collapsed");
+            $("#node-0-0-1-1-2-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-1").removeClass("collapsed");
+            $("#node-0-0-1-1-2-2").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-2").removeClass("collapsed");
+            $("#node-0-0-1-1-2-3").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-3").removeClass("collapsed");
+            $("#node-0-0-1-1-2-4").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-4").removeClass("collapsed");
+            $("#node-0-0-1-1-2-5").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-5").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-0--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-1--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-3--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-4--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-5--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-3--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-4--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-5--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-6--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");
+            $("#msg-0").removeClass("collapsed");
+            $("#msg-1").removeClass("collapsed");
+            $("#msg-2").removeClass("collapsed");
+            $("#msg-3").removeClass("collapsed");
+            $("#msg-4").removeClass("collapsed");
+            $("#msg-5").removeClass("collapsed");
+            $("#msg-6").removeClass("collapsed");
+            $("#msg-7").removeClass("collapsed");
+            $("#msg-8").removeClass("collapsed");
+            $("#msg-9").removeClass("collapsed")
+        }
+        if (step == 8) {
+            $("#node-0-0").removeClass("collapsed");
+            $("#child-container-0-0").removeClass("collapsed");
+            $("#node-0-0-0").removeClass("collapsed");
+            $("#child-container-0-0-0").removeClass("collapsed");
+            $("#node-0-0-1").removeClass("collapsed");
+            $("#child-container-0-0-1").removeClass("collapsed");
+            $("#node-0-0-2").removeClass("collapsed");
+            $("#child-container-0-0-2").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-0--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-0").removeClass("collapsed");
+            $("#child-container-0-0-1-0").removeClass("collapsed");
+            $("#node-0-0-1-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1").removeClass("collapsed");
+            $("#node-0-0-1-2").removeClass("collapsed");
+            $("#child-container-0-0-1-2").removeClass("collapsed");
+            $("#node-0-0-1-3").removeClass("collapsed");
+            $("#child-container-0-0-1-3").removeClass("collapsed");
+            $("#node-0-0-1-4").removeClass("collapsed");
+            $("#child-container-0-0-1-4").removeClass("collapsed");
+            $("#node-0-0-1-5").removeClass("collapsed");
+            $("#child-container-0-0-1-5").removeClass("collapsed");
+            $("#node-0-0-1-6").removeClass("collapsed");
+            $("#child-container-0-0-1-6").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-0--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-1-0").removeClass("collapsed");
+            $("#child-container-0-0-1-1-0").removeClass("collapsed");
+            $("#node-0-0-1-1-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1-1").removeClass("collapsed");
+            $("#node-0-0-1-1-2").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-0--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-1--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-1-2-0").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-0").removeClass("collapsed");
+            $("#node-0-0-1-1-2-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-1").removeClass("collapsed");
+            $("#node-0-0-1-1-2-2").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-2").removeClass("collapsed");
+            $("#node-0-0-1-1-2-3").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-3").removeClass("collapsed");
+            $("#node-0-0-1-1-2-4").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-4").removeClass("collapsed");
+            $("#node-0-0-1-1-2-5").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-5").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-0--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-1--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-3--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-4--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-5--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-3--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-4--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-5--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-6--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");
+            $("#msg-0").removeClass("collapsed");
+            $("#msg-1").removeClass("collapsed");
+            $("#msg-2").removeClass("collapsed");
+            $("#msg-3").removeClass("collapsed");
+            $("#msg-4").removeClass("collapsed");
+            $("#msg-5").removeClass("collapsed");
+            $("#msg-6").removeClass("collapsed");
+            $("#msg-7").removeClass("collapsed");
+            $("#msg-8").removeClass("collapsed");
+            $("#msg-9").removeClass("collapsed");
+            $("#msg-10").removeClass("collapsed");
+            $("#msg-11").removeClass("collapsed")
+        }
+        if (step == 9) {
+            $("#node-0-0").removeClass("collapsed");
+            $("#child-container-0-0").removeClass("collapsed");
+            $("#node-0-0-0").removeClass("collapsed");
+            $("#child-container-0-0-0").removeClass("collapsed");
+            $("#node-0-0-1").removeClass("collapsed");
+            $("#child-container-0-0-1").removeClass("collapsed");
+            $("#node-0-0-2").removeClass("collapsed");
+            $("#child-container-0-0-2").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-0--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-0").removeClass("collapsed");
+            $("#child-container-0-0-1-0").removeClass("collapsed");
+            $("#node-0-0-1-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1").removeClass("collapsed");
+            $("#node-0-0-1-2").removeClass("collapsed");
+            $("#child-container-0-0-1-2").removeClass("collapsed");
+            $("#node-0-0-1-3").removeClass("collapsed");
+            $("#child-container-0-0-1-3").removeClass("collapsed");
+            $("#node-0-0-1-4").removeClass("collapsed");
+            $("#child-container-0-0-1-4").removeClass("collapsed");
+            $("#node-0-0-1-5").removeClass("collapsed");
+            $("#child-container-0-0-1-5").removeClass("collapsed");
+            $("#node-0-0-1-6").removeClass("collapsed");
+            $("#child-container-0-0-1-6").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-0--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-1-0").removeClass("collapsed");
+            $("#child-container-0-0-1-1-0").removeClass("collapsed");
+            $("#node-0-0-1-1-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1-1").removeClass("collapsed");
+            $("#node-0-0-1-1-2").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-0--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-1--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-1-2-0").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-0").removeClass("collapsed");
+            $("#node-0-0-1-1-2-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-1").removeClass("collapsed");
+            $("#node-0-0-1-1-2-2").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-2").removeClass("collapsed");
+            $("#node-0-0-1-1-2-3").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-3").removeClass("collapsed");
+            $("#node-0-0-1-1-2-4").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-4").removeClass("collapsed");
+            $("#node-0-0-1-1-2-5").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-5").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-0--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-1--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-3--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-4--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-5--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-3--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-4--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-5--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-6--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");
+            $("#msg-0").removeClass("collapsed");
+            $("#msg-1").removeClass("collapsed");
+            $("#msg-2").removeClass("collapsed");
+            $("#msg-3").removeClass("collapsed");
+            $("#msg-4").removeClass("collapsed");
+            $("#msg-5").removeClass("collapsed");
+            $("#msg-6").removeClass("collapsed");
+            $("#msg-7").removeClass("collapsed");
+            $("#msg-8").removeClass("collapsed");
+            $("#msg-9").removeClass("collapsed");
+            $("#msg-10").removeClass("collapsed");
+            $("#msg-11").removeClass("collapsed");
+            $("#msg-12").removeClass("collapsed");
+            $("#msg-13").removeClass("collapsed")
+        }
+        if (step == 10) {
+            $("#node-0-0").removeClass("collapsed");
+            $("#child-container-0-0").removeClass("collapsed");
+            $("#node-0-0-0").removeClass("collapsed");
+            $("#child-container-0-0-0").removeClass("collapsed");
+            $("#node-0-0-1").removeClass("collapsed");
+            $("#child-container-0-0-1").removeClass("collapsed");
+            $("#node-0-0-2").removeClass("collapsed");
+            $("#child-container-0-0-2").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-0--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-0").removeClass("collapsed");
+            $("#child-container-0-0-1-0").removeClass("collapsed");
+            $("#node-0-0-1-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1").removeClass("collapsed");
+            $("#node-0-0-1-2").removeClass("collapsed");
+            $("#child-container-0-0-1-2").removeClass("collapsed");
+            $("#node-0-0-1-3").removeClass("collapsed");
+            $("#child-container-0-0-1-3").removeClass("collapsed");
+            $("#node-0-0-1-4").removeClass("collapsed");
+            $("#child-container-0-0-1-4").removeClass("collapsed");
+            $("#node-0-0-1-5").removeClass("collapsed");
+            $("#child-container-0-0-1-5").removeClass("collapsed");
+            $("#node-0-0-1-6").removeClass("collapsed");
+            $("#child-container-0-0-1-6").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-0--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-1-0").removeClass("collapsed");
+            $("#child-container-0-0-1-1-0").removeClass("collapsed");
+            $("#node-0-0-1-1-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1-1").removeClass("collapsed");
+            $("#node-0-0-1-1-2").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-0--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-1--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-1-2-0").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-0").removeClass("collapsed");
+            $("#node-0-0-1-1-2-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-1").removeClass("collapsed");
+            $("#node-0-0-1-1-2-2").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-2").removeClass("collapsed");
+            $("#node-0-0-1-1-2-3").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-3").removeClass("collapsed");
+            $("#node-0-0-1-1-2-4").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-4").removeClass("collapsed");
+            $("#node-0-0-1-1-2-5").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-5").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-0--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-1--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-3--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-4--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-5--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-3--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-4--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-5--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-6--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");
+            $("#msg-0").removeClass("collapsed");
+            $("#msg-1").removeClass("collapsed");
+            $("#msg-2").removeClass("collapsed");
+            $("#msg-3").removeClass("collapsed");
+            $("#msg-4").removeClass("collapsed");
+            $("#msg-5").removeClass("collapsed");
+            $("#msg-6").removeClass("collapsed");
+            $("#msg-7").removeClass("collapsed");
+            $("#msg-8").removeClass("collapsed");
+            $("#msg-9").removeClass("collapsed");
+            $("#msg-10").removeClass("collapsed");
+            $("#msg-11").removeClass("collapsed");
+            $("#msg-12").removeClass("collapsed");
+            $("#msg-13").removeClass("collapsed");
+            $("#msg-14").removeClass("collapsed");
+            $("#msg-15").removeClass("collapsed")
+        }
+        if (step == 11) {
+            $("#node-0-0").removeClass("collapsed");
+            $("#child-container-0-0").removeClass("collapsed");
+            $("#node-0-0-0").removeClass("collapsed");
+            $("#child-container-0-0-0").removeClass("collapsed");
+            $("#node-0-0-1").removeClass("collapsed");
+            $("#child-container-0-0-1").removeClass("collapsed");
+            $("#node-0-0-2").removeClass("collapsed");
+            $("#child-container-0-0-2").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-0--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-0").removeClass("collapsed");
+            $("#child-container-0-0-1-0").removeClass("collapsed");
+            $("#node-0-0-1-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1").removeClass("collapsed");
+            $("#node-0-0-1-2").removeClass("collapsed");
+            $("#child-container-0-0-1-2").removeClass("collapsed");
+            $("#node-0-0-1-3").removeClass("collapsed");
+            $("#child-container-0-0-1-3").removeClass("collapsed");
+            $("#node-0-0-1-4").removeClass("collapsed");
+            $("#child-container-0-0-1-4").removeClass("collapsed");
+            $("#node-0-0-1-5").removeClass("collapsed");
+            $("#child-container-0-0-1-5").removeClass("collapsed");
+            $("#node-0-0-1-6").removeClass("collapsed");
+            $("#child-container-0-0-1-6").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-0--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-1-0").removeClass("collapsed");
+            $("#child-container-0-0-1-1-0").removeClass("collapsed");
+            $("#node-0-0-1-1-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1-1").removeClass("collapsed");
+            $("#node-0-0-1-1-2").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-0--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-1--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-1-2-0").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-0").removeClass("collapsed");
+            $("#node-0-0-1-1-2-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-1").removeClass("collapsed");
+            $("#node-0-0-1-1-2-2").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-2").removeClass("collapsed");
+            $("#node-0-0-1-1-2-3").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-3").removeClass("collapsed");
+            $("#node-0-0-1-1-2-4").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-4").removeClass("collapsed");
+            $("#node-0-0-1-1-2-5").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-5").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-0--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-1--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-3--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-4--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-5--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-3--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-4--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-5--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-6--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");
+            $("#msg-0").removeClass("collapsed");
+            $("#msg-1").removeClass("collapsed");
+            $("#msg-2").removeClass("collapsed");
+            $("#msg-3").removeClass("collapsed");
+            $("#msg-4").removeClass("collapsed");
+            $("#msg-5").removeClass("collapsed");
+            $("#msg-6").removeClass("collapsed");
+            $("#msg-7").removeClass("collapsed");
+            $("#msg-8").removeClass("collapsed");
+            $("#msg-9").removeClass("collapsed");
+            $("#msg-10").removeClass("collapsed");
+            $("#msg-11").removeClass("collapsed");
+            $("#msg-12").removeClass("collapsed");
+            $("#msg-13").removeClass("collapsed");
+            $("#msg-14").removeClass("collapsed");
+            $("#msg-15").removeClass("collapsed");
+            $("#msg-16").removeClass("collapsed");
+            $("#msg-17").removeClass("collapsed")
+        }
+        if (step == 12) {
+            $("#node-0-0").removeClass("collapsed");
+            $("#child-container-0-0").removeClass("collapsed");
+            $("#node-0-0-0").removeClass("collapsed");
+            $("#child-container-0-0-0").removeClass("collapsed");
+            $("#node-0-0-1").removeClass("collapsed");
+            $("#child-container-0-0-1").removeClass("collapsed");
+            $("#node-0-0-2").removeClass("collapsed");
+            $("#child-container-0-0-2").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-0--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-0").removeClass("collapsed");
+            $("#child-container-0-0-1-0").removeClass("collapsed");
+            $("#node-0-0-1-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1").removeClass("collapsed");
+            $("#node-0-0-1-2").removeClass("collapsed");
+            $("#child-container-0-0-1-2").removeClass("collapsed");
+            $("#node-0-0-1-3").removeClass("collapsed");
+            $("#child-container-0-0-1-3").removeClass("collapsed");
+            $("#node-0-0-1-4").removeClass("collapsed");
+            $("#child-container-0-0-1-4").removeClass("collapsed");
+            $("#node-0-0-1-5").removeClass("collapsed");
+            $("#child-container-0-0-1-5").removeClass("collapsed");
+            $("#node-0-0-1-6").removeClass("collapsed");
+            $("#child-container-0-0-1-6").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-0--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-1-0").removeClass("collapsed");
+            $("#child-container-0-0-1-1-0").removeClass("collapsed");
+            $("#node-0-0-1-1-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1-1").removeClass("collapsed");
+            $("#node-0-0-1-1-2").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-0--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-1--1").addClass("shown").removeClass("collapsed");
+            $("#node-0-0-1-1-2-0").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-0").removeClass("collapsed");
+            $("#node-0-0-1-1-2-1").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-1").removeClass("collapsed");
+            $("#node-0-0-1-1-2-2").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-2").removeClass("collapsed");
+            $("#node-0-0-1-1-2-3").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-3").removeClass("collapsed");
+            $("#node-0-0-1-1-2-4").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-4").removeClass("collapsed");
+            $("#node-0-0-1-1-2-5").removeClass("collapsed");
+            $("#child-container-0-0-1-1-2-5").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-0--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-1--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-3--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-4--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-1-2-5--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-3--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-4--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-5--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-1-6--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0-2--1").addClass("shown").removeClass("collapsed");
+            $("#child-indicator-after-node-0-0").addClass("shown").removeClass("collapsed");
+            $("#msg-0").removeClass("collapsed");
+            $("#msg-1").removeClass("collapsed");
+            $("#msg-2").removeClass("collapsed");
+            $("#msg-3").removeClass("collapsed");
+            $("#msg-4").removeClass("collapsed");
+            $("#msg-5").removeClass("collapsed");
+            $("#msg-6").removeClass("collapsed");
+            $("#msg-7").removeClass("collapsed");
+            $("#msg-8").removeClass("collapsed");
+            $("#msg-9").removeClass("collapsed");
+            $("#msg-10").removeClass("collapsed");
+            $("#msg-11").removeClass("collapsed");
+            $("#msg-12").removeClass("collapsed");
+            $("#msg-13").removeClass("collapsed");
+            $("#msg-14").removeClass("collapsed");
+            $("#msg-15").removeClass("collapsed");
+            $("#msg-16").removeClass("collapsed");
+            $("#msg-17").removeClass("collapsed");
+            $("#msg-18").removeClass("collapsed")
+        }
 
     }
 
@@ -668,6 +1426,7 @@ if (step == 12) {$("#node-0-0").removeClass("collapsed");$("#child-container-0-0
         if (step + 1 < numSteps) step += 1;
         applyStep();
     })
+
     function animateStep() {
         $('#button-bar').css({'display': 'none'})
         setTimeout(() => {
@@ -682,20 +1441,22 @@ if (step == 12) {$("#node-0-0").removeClass("collapsed");$("#child-container-0-0
             }
         }, 2000)
     }
+
     $("#button-animate").on("click", () => {
         step = 0;
         animateStep();
     })
     applyStep();
-    
+
     function keyPress(e) {
-        if(e.key === 'a') {
+        if (e.key === 'a') {
             $('#button-animate').click();
         }
     }
+
     document.addEventListener("keydown", keyPress, false);
 
-    
+
 </script>
 <script type="text/javascript">
     function scaleContent() {
