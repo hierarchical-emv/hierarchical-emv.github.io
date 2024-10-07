@@ -281,8 +281,13 @@
                     </h3>
                     <a href="https://arxiv.org/abs/">[arxiv version]</a>
                     <div class="form-group col-md-12">
-                    <textarea id="bibtex" class="form-control" rows="8" readonly>
-Coming soon</textarea>
+                    <textarea id="bibtex" class="form-control" rows="6" readonly>
+@misc{baermann_2024_hierarchical_emv,
+      title={Episodic Memory Verbalization using Hierarchical Representations of Life-Long Robot Experience},
+      author={Leonard Bärmann and Chad DeChant and Joana Plewnia and Fabian Peller-Konrad and Daniel Bauer and Tamim Asfour and Alex Waibel},
+      year={2024},
+      url={https://arxiv.org/abs/2409.17702},
+}</textarea>
                     </div>
                 </div>
             </div>
@@ -329,6 +334,8 @@ Coming soon</textarea>
     }
 
     changeDemoSample()
+
+    $('textarea').on('click', ev => ev.target.select());
 </script>
 
 </body>
